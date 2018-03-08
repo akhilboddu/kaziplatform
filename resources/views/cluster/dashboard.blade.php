@@ -23,7 +23,7 @@
                 <div class="panel-body">
                     <h2>{{Auth::user()->cluster->name}}</h2>
             
-                    <p>Team Slogan</p>   
+                    <p>{{Auth::user()->cluster->slogan}}</p>   
 
                    
                         <a href="{{route('addmember', Auth::user()->cluster->id)}}" class="btn btn-primary pull-right">Add members</a><br>

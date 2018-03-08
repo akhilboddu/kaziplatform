@@ -22,7 +22,7 @@
 
 				    	<div class='form-group'> {{-- Bootstrap accepted in forms --}}
 				    		{{Form::label('name', 'Name of Cluster')}} {{-- the label --}}
-				    		{{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name of your cluster'])}}
+				    		{{Form::text('name', $cluster->name, ['class' => 'form-control', 'placeholder' => 'Name of your cluster'])}}
 				    	</div>
 
 				    	<div class='form-group'> 

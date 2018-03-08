@@ -101,15 +101,18 @@ class ClustersController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'name' => 'required',
             'slogan' => 'required',
         ]);
 
         //create and submit input data into DB (save data)
         $cluster = Cluster::find($id);
+        $members = User::select('name', 'email', 'id')->where('cluster_id', '=', Auth::user()->cluster->id)->get(['name','email','id']);
+        $cluster->name = $request->input('name');
         $cluster->slogan = $request->input('slogan');
         $cluster->save();
 
-        return redirect('/student/cluster')->with('success', 'Cluster Updated');
+        return redirect('/student/explore/')->with('success', 'Cluster Updated! View opportunities');
     }
 
     /**
