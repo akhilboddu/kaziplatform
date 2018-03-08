@@ -1,0 +1,60 @@
++--------+-----------+-----------------------------------------------------+------------------------+------------------------------------------------------------------------+-------------------+
+| Domain | Method    | URI                                                 | Name                   | Action                                                                 | Middleware        |
++--------+-----------+-----------------------------------------------------+------------------------+------------------------------------------------------------------------+-------------------+
+|        | GET|HEAD  | /                                                   |                        | App\Http\Controllers\PagesController@welcome                           | web               |
+|        | GET|HEAD  | api/user                                            |                        | Closure                                                                | api,auth:api      |
+|        | GET|HEAD  | chat                                                | chat                   | App\Http\Controllers\PagesController@chat                              | web               |
+|        | GET|HEAD  | client                                              | client.welcome         | App\Http\Controllers\ClientController@welcome                          | web,auth:clients  |
+|        | GET|HEAD  | client/dashboard                                    | client.dashboard       | App\Http\Controllers\ClientController@index                            | web,auth:clients  |
+|        | GET|HEAD  | client/help                                         | client.help            | App\Http\Controllers\ClientController@client_help                      | web,auth:clients  |
+|        | GET|HEAD  | client/home                                         | client.home            | App\Http\Controllers\ClientController@home                             | web,auth:clients  |
+|        | POST      | client/jobs                                         | jobs.store             | App\Http\Controllers\JobsController@store                              | web,auth:clients  |
+|        | GET|HEAD  | client/jobs                                         | jobs.index             | App\Http\Controllers\JobsController@index                              | web,auth:clients  |
+|        | GET|HEAD  | client/jobs/create                                  | jobs.create            | App\Http\Controllers\JobsController@create                             | web,auth:clients  |
+|        | DELETE    | client/jobs/{job}                                   | jobs.destroy           | App\Http\Controllers\JobsController@destroy                            | web,auth:clients  |
+|        | PUT|PATCH | client/jobs/{job}                                   | jobs.update            | App\Http\Controllers\JobsController@update                             | web,auth:clients  |
+|        | GET|HEAD  | client/jobs/{job}                                   | jobs.show              | App\Http\Controllers\JobsController@show                               | web,auth:clients  |
+|        | GET|HEAD  | client/jobs/{job}/edit                              | jobs.edit              | App\Http\Controllers\JobsController@edit                               | web,auth:clients  |
+|        | POST      | client/login                                        | client.login.submit    | App\Http\Controllers\Auth\ClientLoginController@login                  | web,guest:clients |
+|        | GET|HEAD  | client/login                                        | client.login           | App\Http\Controllers\Auth\ClientLoginController@showLoginForm          | web,guest:clients |
+|        | POST      | client/register                                     | client.register.submit | App\Http\Controllers\Auth\ClientRegisterController@register            | web,guest:clients |
+|        | GET|HEAD  | client/register                                     | client.register        | App\Http\Controllers\Auth\ClientRegisterController@showRegisterForm    | web,guest:clients |
+|        | GET|HEAD  | client/termsandconditions                           | client.kazi-terms      | App\Http\Controllers\ClientController@kazi_terms                       | web,auth:clients  |
+|        | GET|HEAD  | how-it-works                                        |                        | App\Http\Controllers\PagesController@howitworks                        | web               |
+|        | GET|HEAD  | login                                               | login                  | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest         |
+|        | POST      | login                                               |                        | App\Http\Controllers\Auth\LoginController@login                        | web,guest         |
+|        | POST      | logout                                              | logout                 | App\Http\Controllers\Auth\LoginController@logout                       | web               |
+|        | POST      | password/email                                      | password.email         | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest         |
+|        | POST      | password/reset                                      |                        | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest         |
+|        | GET|HEAD  | password/reset                                      | password.request       | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest         |
+|        | GET|HEAD  | password/reset/{token}                              | password.reset         | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest         |
+|        | POST      | register                                            |                        | App\Http\Controllers\Auth\RegisterController@register                  | web,guest         |
+|        | GET|HEAD  | register                                            | register               | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest         |
+|        | POST      | student/cluster                                     | cluster.store          | App\Http\Controllers\ClustersController@store                          | web               |
+|        | GET|HEAD  | student/cluster                                     | cluster.index          | App\Http\Controllers\ClustersController@index                          | web               |
+|        | GET|HEAD  | student/cluster/create                              | cluster.create         | App\Http\Controllers\ClustersController@create                         | web               |
+|        | GET|HEAD  | student/cluster/create/add-member                   | addmember-create       | App\Http\Controllers\ClustersController@viewsearch                     | web               |
+|        | DELETE    | student/cluster/{cluster}                           | cluster.destroy        | App\Http\Controllers\ClustersController@destroy                        | web               |
+|        | GET|HEAD  | student/cluster/{cluster}                           | cluster.show           | App\Http\Controllers\ClustersController@show                           | web               |
+|        | PUT|PATCH | student/cluster/{cluster}                           | cluster.update         | App\Http\Controllers\ClustersController@update                         | web               |
+|        | GET|HEAD  | student/cluster/{cluster}/add-member                | addmember              | App\Http\Controllers\ClustersController@viewsearch                     | web               |
+|        | POST      | student/cluster/{cluster}/add-member/create-request | send.request           | App\Http\Controllers\RequestsController@store                          | web,auth          |
+|        | GET|HEAD  | student/cluster/{cluster}/add-member/search         | autocomplete           | App\Http\Controllers\ClustersController@autocomplete                   | web               |
+|        | GET|HEAD  | student/cluster/{cluster}/edit                      | cluster.edit           | App\Http\Controllers\ClustersController@edit                           | web               |
+|        | GET|HEAD  | student/explore                                     | student.explore        | App\Http\Controllers\StudentController@explore                         | web,auth          |
+|        | GET|HEAD  | student/help                                        | student.help           | App\Http\Controllers\StudentController@student_help                    | web,auth          |
+|        | GET|HEAD  | student/home                                        | student.welcome        | App\Http\Controllers\StudentController@welcome                         | web,auth          |
+|        | GET|HEAD  | student/jobs/{job}                                  | student.showjob        | App\Http\Controllers\StudentController@showjob                         | web,auth          |
+|        | POST      | student/jobs/{job}/send-application                 | send.application       | App\Http\Controllers\ApplicationController@store                       | web               |
+|        | GET|HEAD  | student/leaderboard                                 | student.leaderboard    | App\Http\Controllers\StudentController@leaderboard                     | web,auth          |
+|        | POST      | student/notification/accept-invite                  | notification.accept    | App\Http\Controllers\NotificationController@accept                     | web               |
+|        | POST      | student/notification/get                            | notification.invite    | App\Http\Controllers\NotificationController@get                        | web               |
+|        | POST      | student/notification/reject-invite                  | notification.reject    | App\Http\Controllers\NotificationController@reject                     | web               |
+|        | POST      | student/profile                                     | profile.store          | App\Http\Controllers\StudentProfileController@store                    | web,auth          |
+|        | GET|HEAD  | student/profile                                     | profile.index          | App\Http\Controllers\StudentProfileController@index                    | web,auth          |
+|        | GET|HEAD  | student/profile/create                              | profile.create         | App\Http\Controllers\StudentProfileController@create                   | web,auth          |
+|        | DELETE    | student/profile/{profile}                           | profile.destroy        | App\Http\Controllers\StudentProfileController@destroy                  | web,auth          |
+|        | PUT|PATCH | student/profile/{profile}                           | profile.update         | App\Http\Controllers\StudentProfileController@update                   | web,auth          |
+|        | GET|HEAD  | student/profile/{profile}                           | profile.show           | App\Http\Controllers\StudentProfileController@show                     | web,auth          |
+|        | GET|HEAD  | student/profile/{profile}/edit                      | profile.edit           | App\Http\Controllers\StudentProfileController@edit                     | web,auth          |
++--------+-----------+-----------------------------------------------------+------------------------+------------------------------------------------------------------------+-------------------+

@@ -1,0 +1,74 @@
+[
+{"type":"header","version":"4.7.3","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"KaziDB"},
+{"type":"table","name":"clients","database":"KaziDB","data":
+[
+{"id":"1","name":"Thando","email":"test@test.com","company_name":"Kazi Technologies inc","password":"$2y$10$SY9s\/ip7x5WJ2NKhdiYi5O9s1f4l\/KxQc8FVz1oRSTgXjc7JPR2XS","remember_token":null,"created_at":"2018-01-15 06:21:29","updated_at":"2018-01-15 06:21:29"},
+{"id":"2","name":"Akhil Boddu","email":"akhil1234mara@gmail.com","company_name":"Kazi Technologies inc","password":"$2y$10$c8AWEWXvnapEJbuEMVli4.p3T5HL0j6nAIQZjCcmiMgG.qwv4Xqce","remember_token":null,"created_at":"2018-01-15 13:30:59","updated_at":"2018-01-15 13:30:59"},
+{"id":"3","name":"Aditi","email":"something@gmail.com","company_name":"Donuts incorporation","password":"$2y$10$0XPeP1q52JZia9QA5eBbEeXetRs1XCOCEP42XPZEQ02rUmOLDAMwG","remember_token":null,"created_at":"2018-01-15 14:00:21","updated_at":"2018-01-15 14:00:21"},
+{"id":"4","name":"Suresh Pitta","email":"somethingelse@gmail.com","company_name":"Optics Centre LTD","password":"$2y$10$9UK2YJfPWlorcBBINtsNJuDuQasD17d7QPnJ217wivyjQVztCReZq","remember_token":null,"created_at":"2018-01-18 07:22:51","updated_at":"2018-01-18 07:22:51"}
+]
+}
+,{"type":"table","name":"clusters","database":"KaziDB","data":
+[
+{"id":"19","slogan":"Whether we die or not, work will be done!","XP":"0","created_at":"2018-01-18 14:58:39","updated_at":"2018-01-18 14:58:39","student_id":"0","job_id":"0"},
+{"id":"20","slogan":"WE rule","XP":"0","created_at":"2018-01-18 14:59:22","updated_at":"2018-01-18 14:59:22","student_id":"0","job_id":"0"},
+{"id":"21","slogan":"We cool","XP":"0","created_at":"2018-01-18 15:28:06","updated_at":"2018-01-18 15:28:06","student_id":"0","job_id":"0"},
+{"id":"22","slogan":"We cooler","XP":"0","created_at":"2018-01-18 15:41:47","updated_at":"2018-01-18 15:41:47","student_id":"0","job_id":"0"},
+{"id":"23","slogan":"we bestester","XP":"0","created_at":"2018-01-18 15:49:12","updated_at":"2018-01-19 07:25:18","student_id":"0","job_id":"0"}
+]
+}
+,{"type":"table","name":"jobs","database":"KaziDB","data":
+[
+{"id":"1","title":"Build a lending platform","description":"Using laravel and php.","budget":"R250","delivery_time":"This friday","created_at":"2018-01-15 06:48:12","updated_at":"2018-01-15 11:51:18","cover_image":"noimage.jpg","client_id":"1"},
+{"id":"2","title":"Testing Kazi Platform","description":"Penetration and unit tests on the platform. Each case has to be considered and correctly done.","budget":"R500","delivery_time":"Within the next 2 weeks","created_at":"2018-01-15 11:53:32","updated_at":"2018-01-15 11:53:32","cover_image":"noimage.jpg","client_id":"1"},
+{"id":"5","title":"Uber like product","description":"I want the group to create a product like uber","budget":"R2000","delivery_time":"Within the next 2 months","created_at":"2018-01-15 12:42:24","updated_at":"2018-01-15 12:44:38","cover_image":"1_1516020278.jpg","client_id":"1"},
+{"id":"6","title":"Make a donut","description":"I want a donut made for myself with chocolate and colored sprinkes. I like white chocolate as well. Surprise me.","budget":"R100","delivery_time":"Within the next 24 hours","created_at":"2018-01-15 14:03:05","updated_at":"2018-01-15 14:03:21","cover_image":"donut_1516024985.jpg","client_id":"3"},
+{"id":"8","title":"Build a bot","description":"Inline chat bot for blogging website","budget":"R50000","delivery_time":"Within the next 2 months","created_at":"2018-01-15 20:28:11","updated_at":"2018-01-15 20:28:11","cover_image":"dungeon tileset calciumtrice simple (1)_1516048091.png","client_id":"2"},
+{"id":"9","title":"Create a smartphone","description":"Need a new smartphone with a newly designed operating system","budget":"R50000","delivery_time":"Within the next year","created_at":"2018-01-16 09:01:20","updated_at":"2018-01-16 09:01:20","cover_image":"noimage.jpg","client_id":"2"},
+{"id":"10","title":"Fix issues for Kazi Platform","description":"There are quite a few small issues that need to be fixed with the website.","budget":"R550","delivery_time":"By next friday","created_at":"2018-01-18 06:34:51","updated_at":"2018-01-18 06:35:48","cover_image":"kazi_logo_1516257348.svg","client_id":"1"},
+{"id":"11","title":"Build a Landing website","description":"I want a website built about my company.","budget":"R500","delivery_time":"Within the next 24 hours","created_at":"2018-01-18 07:24:11","updated_at":"2018-01-18 07:24:11","cover_image":"noimage.jpg","client_id":"4"}
+]
+}
+,{"type":"table","name":"migrations","database":"KaziDB","data":
+[
+{"id":"7","migration":"2014_10_12_000000_create_users_table","batch":"1"},
+{"id":"8","migration":"2014_10_12_100000_create_password_resets_table","batch":"1"},
+{"id":"9","migration":"2018_01_11_115533_create_clients_table","batch":"1"},
+{"id":"10","migration":"2018_01_12_070649_create_jobs_table","batch":"1"},
+{"id":"11","migration":"2018_01_12_115701_drop_requirements_column_from_jobs","batch":"1"},
+{"id":"12","migration":"2018_01_12_124149_add_new_columns_to_jobs","batch":"1"},
+{"id":"13","migration":"2018_01_15_061011_add_client_id_to_jobs","batch":"1"},
+{"id":"14","migration":"2018_01_15_144404_add_coverimage","batch":"2"},
+{"id":"15","migration":"2018_01_16_135413_add_headline_to_users","batch":"3"},
+{"id":"16","migration":"2018_01_18_073748_create_clusters_table","batch":"4"},
+{"id":"17","migration":"2018_01_18_082519_add_cluster_id_to_users","batch":"4"},
+{"id":"18","migration":"2018_01_20_161501_create_requests_table","batch":"5"}
+]
+}
+,{"type":"table","name":"password_resets","database":"KaziDB","data":
+[
+
+]
+}
+,{"type":"table","name":"requests","database":"KaziDB","data":
+[
+{"id":"1","sender_id":"9","receiver_id":"4","status":"sent","created_at":"2018-01-21 11:37:15","updated_at":"2018-01-21 11:37:15"},
+{"id":"2","sender_id":"9","receiver_id":"3","status":"sent","created_at":"2018-01-21 12:30:08","updated_at":"2018-01-21 12:30:08"},
+{"id":"3","sender_id":"9","receiver_id":"5","status":"sent","created_at":"2018-01-21 12:39:17","updated_at":"2018-01-21 12:39:17"},
+{"id":"4","sender_id":"9","receiver_id":"6","status":"sent","created_at":"2018-01-21 12:39:17","updated_at":"2018-01-21 12:39:17"}
+]
+}
+,{"type":"table","name":"users","database":"KaziDB","data":
+[
+{"id":"3","name":"Virat Kohli","email":"test@test.com","password":"$2y$10$l4oAJwlsyIf3osmxO8IzQOXb61H8eY57pwSTC9IZ714RO1mGYUTyW","remember_token":"kvxmnyZcQE1IaQKFETxwv5Lsz2Ju8gNZJ8gZnrm6saOKsuhH7rpZadKEKXQ4","created_at":"2018-01-16 15:28:45","updated_at":"2018-01-18 07:07:19","cover_image":"vk_1516259239.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"0"},
+{"id":"4","name":"Akhil","email":"akhil1234mara@gmail.com","password":"$2y$10$LTIjQf1qb.KwwQc06xNzpeJXt3bURdwLtu5w9hYdi.rLy8yy778Vi","remember_token":"ItDANNxCBQS6dKRdUrHnFcYgM3mPAlZBKyFCLJvMlU3fQoR89nR82TrTZRUW","created_at":"2018-01-18 05:28:17","updated_at":"2018-01-18 07:03:12","cover_image":"Headshot_1516258992.JPG","XP":"0","headline":"Kazi Developer | Student","cluster_id":"0"},
+{"id":"5","name":"Aditi","email":"aditi@test.com","password":"$2y$10$uUDTOisO.LXK4plHDL6z\/Omg1Bht85ASXI4ACyrtOdxYdxfG2.ADS","remember_token":"dyyi8oeH793cEiCn2zy19IQbJiLEG7wj3YyFUfP6fAAe0oA4N8dBNLTdQV8T","created_at":"2018-01-18 12:16:29","updated_at":"2018-01-18 12:16:29","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"0"},
+{"id":"6","name":"asif","email":"asif@test.com","password":"$2y$10$YwNB3oktR7bUqaIqfO\/xtuEswTBNjrjciTVFMVmXlrzjjJ\/K.r\/.u","remember_token":"g3x6hzUDa9zj3mNY6D9LaQyJJYzZNmzDZyBEJmjKxBrBs6gc8vJMhMp3P5Ru","created_at":"2018-01-18 12:17:08","updated_at":"2018-01-18 14:56:10","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"8"},
+{"id":"7","name":"Renuka","email":"renuka@test.com","password":"$2y$10$BmJgTWWF.OOI18H9i7B54OdeL6yDI7K5yxBpE0MALPO9tQMI96OCG","remember_token":"Nzdez1Pfyb1mflblttmrcU1jucD3epXYS2e0tMv7iIV5hjRL8b4E5B8wZkeE","created_at":"2018-01-18 14:38:14","updated_at":"2018-01-18 14:59:22","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"20"},
+{"id":"8","name":"Muralidhar","email":"muralidhar@test.com","password":"$2y$10$uIUVR3yd7C9a5ymKa5nPKeE5WpJn0cToiyXewIYRFVgQc5m1.sd2G","remember_token":"rYhpPxkbaTF0gaClazHGLM8glJ3rsiyPyQyjeCiXW3PkMNkL8KfUVLsnEYZL","created_at":"2018-01-18 15:27:54","updated_at":"2018-01-18 15:41:47","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"22"},
+{"id":"9","name":"Mvelo","email":"mvelo@test.com","password":"$2y$10$YP7nXs.etJ\/8bPgb7jGXoOknkvw8DAC4SHQpyPNVfLr.9mzlnG\/t.","remember_token":"ksrhi93IbyuNyYeoZYuKQ8WSX7XMJLO65yD6DKThAh6qMMhtyDNgWVsgMVSJ","created_at":"2018-01-18 15:48:45","updated_at":"2018-01-18 15:49:12","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"23"},
+{"id":"10","name":"Jethro","email":"jethro@test.com","password":"$2y$10$8WSjZtWRO4AQE.qC2rnoFeM2ejWJr9x8A8uaSVuxuieSlE1G.rKzK","remember_token":"YCfqa257o924DIuIvAddElPRn5mGfcBKAjm9TewmPZv4bafNIVt6ZZiHjUSn","created_at":"2018-01-19 13:55:02","updated_at":"2018-01-19 13:55:02","cover_image":"default.jpg","XP":"0","headline":"Kazi Developer | Student","cluster_id":"0"}
+]
+}
+]
