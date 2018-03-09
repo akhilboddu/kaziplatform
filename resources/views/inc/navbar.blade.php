@@ -12,9 +12,16 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="">
+                    @if(Auth::user())
+                        <a class="navbar-brand" href="{{route('student.welcome')}}">
                         {{ config('app.name', 'Kazi') }}
                     </a>
+                    @elseif(Auth::guest())
+                        <a class="navbar-brand" href="/">
+                        {{ config('app.name', 'Kazi') }}
+                    </a>
+                    @endif
+                    
 
                 </div>
 
@@ -34,7 +41,7 @@
                         <!-- Authentication Links -->
 
                         @if(Auth::guest())
-                        	<li><a href="{{ route('client.welcome') }}">Become a Client</a></li>
+                        	{{-- <li><a href="{{ route('client.welcome') }}">Become a Client</a></li> --}}
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
 
@@ -46,8 +53,10 @@
                             @endif
 
                             <li><a class="text-capitalize" href="{{route('profile.show', ['id' => Auth::user()->id])}}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                            <li><a href="{{ route('student.welcome') }}"><i class="glyphicon glyphicon-home"></i>Home</a></li>
-                            <li><a href="{{ route('student.help') }}"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li>
+                            {{-- <li><a href="{{ route('student.welcome') }}"><i class="glyphicon glyphicon-home"></i>Home</a></li> --}}
+                            {{-- <li><a href="{{ route('student.help') }}"><span class="glyphicon glyphicon-question-sign"></span>Help</a></li> --}}
+                             <li><a href="{{ route('student.explore') }}"><span class="glyphicon glyphicon-search"></span>Explore</a></li>
+
 
 
                             
@@ -68,7 +77,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{route('student.explore')}}">Opportunties</a></li>
+                                    <li><a href="{{route('student.help')}}">Help</a></li>
                                     <li><a href="{{route('student.leaderboard')}}">Leaderboard</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"

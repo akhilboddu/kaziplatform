@@ -21,30 +21,27 @@
         <div class="container"> 
             <div class="panel">
                 <div class="panel-body">
+
                     <h2>{{Auth::user()->cluster->name}}</h2>
+                    <a href="{{route('addmember', Auth::user()->cluster->id)}}" class="btn btn-primary pull-right">Add members</a><br>
+
             
                     <p>{{Auth::user()->cluster->slogan}}</p>   
-
+                    
                    
-                        <a href="{{route('addmember', Auth::user()->cluster->id)}}" class="btn btn-primary pull-right">Add members</a><br>
+                        
 
                     <hr>
 
                     <div class="container">
 
                         @foreach($members as $member)
-                            <div class="col-sm-2 col-md-2"">
+                            <div class="col-sm-2 col-md-2">
                                 <center><img src="/storage/students/cover_images/{{$member->cover_image}}" style="object-fit: cover;width:150px; height:150px; border-radius:50%; margin-right:25px;"></center>
                                 <h5>{{$member->name}}</h5>
                                 <p><kbd>{{$member->headline}}</kbd></p>
                             </div>
                         @endforeach
-
-                        {{-- @for($i=0; $i<5-count($members); $i--)
-                            <div class="col-sm-2 col-md-2"">
-                                <center><img src="/storage/students/cover_images/default.jpg" style="width:150px; height:150px; border-radius:50%; margin-right:25px;"></center>
-                            </div>
-                        @endfor --}}
                     
                     </div>
 
@@ -57,8 +54,17 @@
 
              <div class="col-md-8">
                  <div class="panel">
-                    <div class="panel-heading"><h2>Active Job</h2></HEADER></div>
+
+
+                    {{-- <a class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" data-target="#largeModal"></a> --}}
+                    
+                    <div class="panel-heading"><h2>Active Job</h2>                        
+                        
+
+                    </div>
+
                         <div class="panel-body">
+
                             <hr>
                             <h3>Job Title</h3>
                             <p>Job stuff</p>
