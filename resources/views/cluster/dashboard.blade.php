@@ -58,24 +58,31 @@
 
                     {{-- <a class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" data-target="#largeModal"></a> --}}
                     
-                    <div class="panel-heading"><h2>Active Job</h2>                        
+                    <div class="panel-heading"><h2>Projects</h2>                        
                         
 
                     </div>
 
                         <div class="panel-body">
 
-                            <hr>
-                            <h3>Job Title</h3>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            
+
 
                             <hr>
-                            <h3>Timeline</h3>
+                            <h3>Active Jobs</h3>
+                            <p>Job stuff</p>
+                            <p>Job stuff</p>
+                            <p>Job stuff</p>
+                            <br>
+
+                            <hr>
+                            <h3>Completed Jobs</h3>
+                            <p>Job stuff</p>
+                            <p>Job stuff</p>
+                            <p>Job stuff</p>
+                            <br>
+                            
+                            <hr>
+                            <h3>Awaiting for response Projects</h3>
                             <p>Job stuff</p>
                             <p>Job stuff</p>
                             <p>Job stuff</p>
@@ -87,15 +94,15 @@
             <div class="col-md-4">
                 <div class="panel">
                     <div class="panel-heading"><h2>Kazi Cluster Rating</h2></div>
-                    {{-- <center><img src="/storage/students/stars_rating/1-star.png" style="width:250px; height:250px; border-radius:50%; text-align: center;"></center> --}}
+                    <center><img src="/storage/students/stars_rating/1-star.png" style="width:100px; height:100px; text-align: center;"></center>
                     <div class="panel-body">
-                        <p>Kazi XP</p>
-                        <p>etc</p>
+                        <p><strong>Maintain high standards to redeem Kazi XP for your cluster in the future.</strong></p>
+                        
                     </div>
                 </div>
             </div>  
 
-            <div class="col-md-8 second">
+           {{--  <div class="col-md-8 second">
                  <div class="panel">
                     <div class="panel-heading"><h2>Notes</h2></div>
                         <div class="panel-body">
@@ -105,16 +112,23 @@
                             </ul>
                         </div>
                   </div>
-            </div>
+            </div> --}}
 
-             <div class="col-md-8 third">
+             <div class="col-md-8 second">
                  <div class="panel">
                     <div class="panel-heading"><h2>Need Some assistance?</h2></div>
                         <div class="panel-body">
-                            <p><strong>Contact us</strong></p>
+                            <p><strong>Contact us for Support</strong></p>
                             <ul class="list-group">
-                                <li class="list-group-item">Facebook <kbd class="pull-right">Thats the link</kbd></li>
-                                <li class="list-group-item">Twitter<kbd class="pull-right">Or not</kbd></li>
+                                <li class="list-group-item">Email<kbd class="pull-right">info&#64;kazitechsolutions.com</kbd></li>
+                                <li class="list-group-item">Facebook <a href="https://www.facebook.com/kazitechsolutions/" target="_blank"> <kbd class="pull-right">www.facebook.com/kazitechsolutions/ </kbd></a></li>
+                                <li class="list-group-item">Instagram<a href="https://www.instagram.com/kazitechsolutions/" target="_blank"> <kbd class="pull-right">www.instagram.com/kazitechsolutions/</kbd></a></li>
+                            </ul>
+                            <p><strong>View our page</strong></p>
+                            <ul class="list-group">
+
+                                <li class="list-group-item">Kazi Tech Solutions<a href="http://kazitechsolutions.com/" target="_blank"> <kbd class="pull-right">www.kazitechsolutions.com/</kbd></a></li>
+                                
                             </ul>
                         </div>
                   </div>

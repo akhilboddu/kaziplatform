@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use App\Experience;
+use App\Language;
 use App\Job;
 use App\Client;
 use App\User;
 use Auth;
+use App\Interest;
 
 class StudentProfileController extends Controller
 {
@@ -58,7 +61,13 @@ class StudentProfileController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('student.profile')->with('user', $user);
+        $experiences = Experience::select('id','company_name', 'user_id', 'position','duration','description', 'link','cover_image')->where('user_id', '=', Auth::user()->id)->get(['id','company_name','user_id','position','duration','description', 'link','cover_image']);
+        $languages = Language::select('id', 'language', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id', 'language','user_id']);
+        $interests = Interest::select('id','interest', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id','interest','user_id']);
+        return view('student.profile')->with('user', $user)
+                                    -> with(compact('experiences'))
+                                    -> with(compact('languages'))
+                                    -> with(compact('interests'));
     }
 
     /**

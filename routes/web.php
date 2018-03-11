@@ -38,6 +38,10 @@ Route::prefix('student')->group(function(){
 	
 });
 
+//requests
+// Route::post('student/profile/{profile}/experience ', 'ExperiencesController@store')->name('experience.create');
+
+
 
 //client side
 Route::prefix('client')->group(function(){
@@ -69,6 +73,16 @@ Route::post('student/jobs/application/{job}', 'ApplicationsController@store')->n
 
 //user profile
 Route::resource('student/profile', 'StudentProfileController');
+
+Route::resource('student/profile/{profile}/experience', 'ExperiencesController', ['parameters' => [
+    'profile' => 'student_id'
+]]);
+Route::resource('student/profile/{profile}/programming-language', 'LanguagesController', ['parameters' => [
+    'profile' => 'student_id'
+]]);
+Route::resource('student/profile/{profile}/interest', 'InterestsController', ['parameters' => [
+    'profile' => 'student_id'
+]]);
 
 //cluster dashboard
 Route::resource('student/cluster', 'ClustersController');

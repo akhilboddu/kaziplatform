@@ -80,6 +80,7 @@ class StudentController extends Controller
         ]);
 
         //Handle file upload
+        ini_set('memory_limit','256M');
         if($request->hasFile('cover_image')){
             //Get file name with the extention
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();

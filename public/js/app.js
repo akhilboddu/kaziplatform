@@ -51661,7 +51661,7 @@ var render = function() {
                 _vm._v(" You received an invite from "),
                 _c("strong", [_vm._v(_vm._s(notification.data.sender.name))]),
                 _vm._v(" to join "),
-                _c("strong", [_vm._v(_vm._s(notification.data.cluster.id))])
+                _c("strong", [_vm._v(_vm._s(notification.data.cluster.name))])
               ]),
               _vm._v(" "),
               _c(

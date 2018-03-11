@@ -5,12 +5,12 @@
 	<h1>EDITING A CLUSTER</h1>
 	<hr>
 
-  	<p>Please fill in the general information about the Cluster.</p>
+  	<p>Edit your cluster details in General tab, and add members in the Members tab.</p>
 
 		<ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#overview">General</a></li>
 			<li><a data-toggle="tab" href="#members">Members</a></li>
-			<li><a data-toggle="tab" href="#publish">Publish</a></li>
+			
 		</ul>
 
 		<div class="tab-content">
@@ -59,14 +59,7 @@
 
 				</div>
 
-				<div id="publish" class="tab-pane fade">
-					<h3>Publish</h3>
-						<br>
-						<h4>Congratulations!</h4>
-						<p>You are nearly done registering your cluster!</p>
-						<p>By clicking on Publish below, you are agreeing to the <a href="" target="_blank">Terms and Conditions</a> of Kazi Technologies.</p>
-						<p>Please click on Publish below to continue.</p>
-				</div>
+				
 		
 		</div>
 		<div id='app'></div>

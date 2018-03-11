@@ -27,12 +27,12 @@
 
                             <div class='form-group'> {{-- Bootstrap accepted in forms --}}
                                     {{Form::label('name', 'Name')}} {{-- the label --}}
-                                    {{Form::text('name',Auth::user()->name, ['class' => 'form-control', 'placeholder' => 'Name that will be displayed'])}}
+                                    {{Form::text('name', , ['class' => 'form-control', 'placeholder' => 'Name that will be displayed'])}}
                             </div>
 
                             <div class='form-group'> 
                                     {{Form::label('headline', 'Headline')}} 
-                                    {{Form::text('headline',Auth::user()->headline, ['class' => 'form-control', 'placeholder' => 'Headline to be displayed'])}}
+                                    {{Form::text('headline', , ['class' => 'form-control', 'placeholder' => 'Headline to be displayed'])}}
                             </div>
 
                             <div class="form-group">

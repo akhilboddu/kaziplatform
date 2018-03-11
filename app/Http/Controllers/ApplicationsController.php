@@ -116,7 +116,8 @@ class ApplicationsController extends Controller
         //notify client about sending request
         $client->notify(new ApplicationSent($application, $cluster, $job, $client));
 
-        return 'success';
+        return redirect()->route('cluster.show', Auth::user()->cluster->id)->with('success','Application has been sent!');
+                                                                
 
     }
 

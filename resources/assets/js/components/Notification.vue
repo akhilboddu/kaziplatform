@@ -6,7 +6,7 @@
         </a>
                 <ul class="dropdown-menu">
                     <li v-for="notification in notifications" style="padding-left:10px; padding-right:10px;">
-                            <a> You received an invite from <strong>{{ notification.data.sender.name }}</strong> to join <strong>{{notification.data.cluster.id}}</strong> </a>
+                            <a> You received an invite from <strong>{{ notification.data.sender.name }}</strong> to join <strong>{{notification.data.cluster.name}}</strong> </a>
 
                             <a v-on:click="AcceptInvite(notification)" class="btn btn-success btn-small">Accept</a>
 
