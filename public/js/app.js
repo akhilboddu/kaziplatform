@@ -51845,7 +51845,7 @@ var render = function() {
             },
             [
               _c("a", [
-                _c("strong", [_vm._v(_vm._s(notification.data.cluster.id))]),
+                _c("strong", [_vm._v(_vm._s(notification.data.cluster.name))]),
                 _vm._v(" sent you an application for the "),
                 _c("strong", [_vm._v(_vm._s(notification.data.job.title))]),
                 _vm._v(" you posted.")

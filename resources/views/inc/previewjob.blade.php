@@ -47,10 +47,15 @@
               </div>
         </div>
     @else
-
+ 
         <div class="col-md-4">
              <div class="panel">
-                 <a><div class="panel-heading btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#largeModal">Apply!</div></a>
+
+                  @if($status == 1)
+                      <a><div class="panel-heading btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#largeModal">Apply!</div></a>
+                  @else
+                      <a><div class="panel-heading btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#small">Apply!</div></a>
+                  @endif
               </div>
         </div>
 
@@ -69,10 +74,11 @@
                 </div>
 
                 <div class="modal-body">
-                  <h3>Are you sure you want to continue?</h3>
-                  <p>Can insert some data that needs to be stored for later purposes.</p>
-                  <p>Can insert information directly from Client over here.</p>
-                  <p><strong>By clicking on Send Application below, you are accepting the <a href="">Terms and Conditions</a> of Kazi Technologies.</strong></p>
+                  <h3>Are you sure you want to continue?</h3><br>
+                  <p>Your application will be sent to the client.</p>
+
+                  
+                  
                 </div>
 
                 <div class="modal-footer">
@@ -92,6 +98,44 @@
           </div>
         </div>
 
+        <div class="modal fade" id="small" tabindex="-1" role="dialog" aria-labelledby="small" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+
+              <form id="send-application" action={{route('applications.store', $job->id)}} method="POST">
+                {{ csrf_field() }}
+
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">WHHOOOOPPPS!</strong></h4>
+                </div>
+
+                <div class="modal-body">
+                  <h3>Looks like you have already applied!</h3><br>
+                  <p>Wait for further communication.</p>
+
+                  
+                  
+                </div>
+
+                <div class="modal-footer">
+                  <a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
+
+                  {{-- FORM SUBMIT --}}
+                  {{-- <input class="btn btn-primary btn-lg" type="submit" value="Send Application"> --}}
+
+                </div>
+
+
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+
 
     @endif
 
@@ -99,7 +143,7 @@
          <div class="panel">
              <div class="panel-heading"></div>
                 <div class="panel-body">
-                      <p>Can add other content here: need to discuss</p>
+                      <p>Need assistance? Visit our <a href="/student/help">help page</a></p>
                 </div>
           </div>
     </div>

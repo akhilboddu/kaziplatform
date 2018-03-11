@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Interest;
+use App\Link;
 
 use Illuminate\Http\Request;
 use Auth;
 
-class InterestsController extends Controller
+class LinksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,19 +38,19 @@ class InterestsController extends Controller
     {
         //validation, pass request and array of rules
         $this->validate($request, [
-            'interest' => 'required',
+            'link' => 'required',
             
         ]);
 
-        $lang = new Interest();
-        $lang->interest = $request->input('interest');
-        $lang->user_id = Auth::user()->id;
-        $lang->save();
+        $link = new Link();
+        $link->link = $request->input('link');
+        $link->user_id = Auth::user()->id;
+        $link->save();
 
-        $interests = Interest::select('id','interest', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id','interest','user_id']);
+        $links = Link::select('id','link', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id','link','user_id']);
 
-        return redirect()->route('profile.show', Auth::user()->id)->with('success','Interest has been added!')
-                                                                ->with(compact('interests'));
+        return redirect()->route('profile.show', Auth::user()->id)->with('success','Personal Link has been added!')
+                                                                ->with(compact('links'));
     }
 
     /**
@@ -95,10 +95,8 @@ class InterestsController extends Controller
      */
     public function destroy($id1, $id)
     {
-        $lang = Interest::find($id);
-
-        $lang->delete();
-
-        return redirect()->route('profile.show', Auth::user()->id)->with('success','Interest has been successfully Deleted');
+        $link = Link::find($id);
+        $link->delete();
+        return redirect()->route('profile.show', Auth::user()->id)->with('success','Link has been successfully Deleted');
     }
 }

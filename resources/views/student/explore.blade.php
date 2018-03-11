@@ -29,9 +29,30 @@
             @endforeach
             {{$jobs->links()}}
         @elseif(Auth::user()->cluster_id == 0)
-            <p>Please create a cluster or accept invitation from other cluster to view available opportunities</p>
+            
+            <div class="well">
+                <div class="row" style="text-align: center;"">
+                    <h4><strong>Please <kbd>create a cluster</kbd> or <kbd>accept invitation</kbd> from another cluster to view available opportunities</strong></h4><br>
+                    <a class="btn btn-success btn-lg" " href="{{ route('profile.show', Auth::user()->id) }}">
+                        View Profile
+                    </a>
+                    <a class="btn btn-primary btn-lg" href="{{route('cluster.create')}}" }}">
+                        Create a cluster
+                    </a>
+                </div>
+                                
+                                
+            </div>
+            
         @else
-            <p>No opportunities available.</p>
+            <div class="well">
+                <div class="row">
+                    <h3 style="text-align: center;"><strong>No opportunities available.</h3></strong></h1>
+                </div>
+                                
+                                
+            </div>
+            <p></p>
         @endif
 </div>
 

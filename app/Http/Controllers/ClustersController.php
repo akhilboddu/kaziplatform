@@ -9,6 +9,8 @@ use Auth;
 use App\Cluster;
 use App\Invitation;
 
+use App\Application;
+
 class ClustersController extends Controller
 {
     // *
@@ -71,8 +73,12 @@ class ClustersController extends Controller
     {
         $cluster = Cluster::find($id);
         $members = User::select('name', 'email', 'id','cover_image','headline')->where('cluster_id', '=', Auth::user()->cluster->id)->get(['name','email','id','cover_image','headline']);
+
+        $requests = Application::select('cluster_id', 'job_id', 'job_title','cluster_name')->where('cluster_id', '=', Auth::user()->cluster->id)->get(['cluster_id', 'job_id', 'job_title','cluster_name']);
+
         return view('cluster.dashboard')->with('cluster', $cluster)
-                                        ->with(compact('members'));
+                                        ->with(compact('members'))
+                                        ->with(compact('requests'));
     }
 
     /**

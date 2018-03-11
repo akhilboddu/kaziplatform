@@ -8,7 +8,7 @@
                     <li><a href="/client/applications" style="text-align:center;">View All</a></li>
                     <hr>
                     <li v-for="notification in notifications" style="padding-left:10px; padding-right:10px;">
-                            <a > <strong>{{ notification.data.cluster.id}}</strong> sent you an application for the <strong>{{ notification.data.job.title}}</strong> you posted.</a>
+                            <a > <strong>{{ notification.data.cluster.name}}</strong> sent you an application for the <strong>{{ notification.data.job.title}}</strong> you posted.</a>
                             <hr>
                        
                     </li> 

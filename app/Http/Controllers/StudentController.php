@@ -7,6 +7,7 @@ use App\Client;
 use App\User;
 use Auth;
 use App\Invitation;
+use App\Application;
 
 use App\Notifications\InvitationSent;
 
@@ -56,7 +57,15 @@ class StudentController extends Controller
 
     public function showjob($id){
         $job = Job::find($id);
-        return view('student.showjob')->with('job', $job);
+        $count = Application::select('cluster_id','job_id')->where('cluster_id', '=', Auth::user()->cluster->id)->count();
+        if($count>1){
+            $status = 0;
+        }
+        else{
+            $status = 1;
+        }
+        return view('student.showjob')->with('job', $job)
+                                    -> with('status', $status);
     }
 
 

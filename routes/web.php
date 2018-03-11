@@ -83,6 +83,9 @@ Route::resource('student/profile/{profile}/programming-language', 'LanguagesCont
 Route::resource('student/profile/{profile}/interest', 'InterestsController', ['parameters' => [
     'profile' => 'student_id'
 ]]);
+Route::resource('student/profile/{profile}/link', 'LinksController', ['parameters' => [
+    'profile' => 'student_id'
+]]);
 
 //cluster dashboard
 Route::resource('student/cluster', 'ClustersController');

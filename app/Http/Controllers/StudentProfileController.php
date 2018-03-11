@@ -12,6 +12,7 @@ use App\Client;
 use App\User;
 use Auth;
 use App\Interest;
+use App\Link;
 
 class StudentProfileController extends Controller
 {
@@ -64,10 +65,13 @@ class StudentProfileController extends Controller
         $experiences = Experience::select('id','company_name', 'user_id', 'position','duration','description', 'link','cover_image')->where('user_id', '=', Auth::user()->id)->get(['id','company_name','user_id','position','duration','description', 'link','cover_image']);
         $languages = Language::select('id', 'language', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id', 'language','user_id']);
         $interests = Interest::select('id','interest', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id','interest','user_id']);
+        $links = Link::select('id','link', 'user_id')->where('user_id', '=', Auth::user()->id)->get(['id','link','user_id']);
+
         return view('student.profile')->with('user', $user)
                                     -> with(compact('experiences'))
                                     -> with(compact('languages'))
-                                    -> with(compact('interests'));
+                                    -> with(compact('interests'))
+                                    -> with(compact('links'));;
     }
 
     /**
@@ -136,6 +140,8 @@ class StudentProfileController extends Controller
             }
             $user->cover_image = $fileNameToStore;
         }
+
+        $user->bio = $request->input('bio');
 
         $user->save();
 

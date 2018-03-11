@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar" style="background-color:black; color: #555;">
             <div id="app" class="container">
                 <div class="navbar-header">
 

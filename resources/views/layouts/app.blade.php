@@ -18,20 +18,44 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style type="text/css">
-        * {
-            margin: 0;
+        
+        html,
+        body {
+           margin:0;
+           padding:0;
+           height:100%;
         }
-        html, body {
-            height: 100%;
+        #container {
+           min-height:100%;
+           position:relative;
         }
-        .wrapper {
-            min-height: 100%;
-            height: 100%;
-            margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+        #header {
+           background:#ff0;
+           padding:10px;
         }
-        .footer, .push {
-            height: 155px; /* .push must be the same height as .footer */
+        #body {
+           padding:10px;
+           padding-bottom:60px;   /* Height of the footer */
         }
+        #footer {
+           
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #efefef;
+          text-align: center;
+
+        }
+        #demo {
+          margin: 0 auto;
+          padding-top: 64px;
+          max-width: 640px;
+          width: 94%;
+        }
+
+        
 
         @yield('style')
 
@@ -41,26 +65,46 @@
 
 </head>
 <body>
-    <div class="wrapper">
+    
     @include('inc.navbar')
     <div class="container">
         @include('inc.messages')
         @yield('content')
     </div>
-    <div class="footer push" style="bottom: 0px;"></div>
-    <nav class="navbar navbar-inverse" role="navigation">
-        @include('inc.footer')
-    </nav>
+    {{-- <div id="footer"></div> --}}
+    
+    {{-- <div class="footer">This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.</div> --}}
+       @include('inc.footer') 
+   
+    
+</body>
+    
+    {{-- <div class="navbar navbar-inverse navbar-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2014 - Site Built By Mr. M.
+           <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
+      </p>
+
+      <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
+      <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
     </div>
+</div> --}}
+    {{-- <div class="footer push" style="bottom: 0px;"></div> --}}
+    
+
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>  
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace( 'ckeditor' );
-        </script>
+    <script>
+        CKEDITOR.replace( 'ckeditor' );
+    </script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
     @yield('script')
 
-</body>
+
 </html>
 
 

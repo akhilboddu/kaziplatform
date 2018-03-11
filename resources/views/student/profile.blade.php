@@ -46,8 +46,20 @@
 			<div class="panel-body">
 				
 		        <img src="/storage/students/cover_images/{{$user->cover_image}}" style="width:auto; height:250px; float:left; margin-right:25px;">
-		        <h2>{{$user->name}}'s Profile <a class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" data-target="#Overview"></a></h2> 
-		        <small><kbd>{{$user->headline}}</kbd></small>      
+		        <h2>{{$user->name}}<a class="glyphicon glyphicon-pencil pull-right" data-toggle="modal" data-target="#Overview"></a></h2> 
+		        <small><kbd>{{$user->headline}}</kbd></small><br><br>
+		        <h4>Bio</h4>
+		        <p class="text-muted"">{{$user->bio}}</p>
+		        <br>
+
+				<div style="text-align: right;">
+					@foreach($links as $link)
+                    	<small><kbd>{{$link->link}}</kbd></small>		
+                	@endforeach
+				</div>
+		        
+
+           		
 		    </div>
 	    </div>
 	</div>
@@ -84,8 +96,16 @@
                                     {{Form::label('cover_image', 'Upload your Avatar')}} 
                                     {{Form::file('cover_image')}}
                             </div> 
-
+							
+							<div class='form-group'> 
+                                    {{Form::label('bio', 'Bio')}} 
+                                    {{Form::textarea('bio',Auth::user()->bio, ['class' => 'form-control', 'placeholder' => 'Headline to be displayed'])}}
                             </div>
+							
+							</div>
+
+                           <p><i>Links can be added at the bottom of your profile page.</i></p>
+
 							
 							<div class="modal-footer">
                   				<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
@@ -288,7 +308,7 @@
 											<div class="modal-footer">
 				                  				<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
 				                            
-				                            {{Form::submit('Add Language', ['class' => 'btn btn-primary btn-lg'])}}
+				                            {{Form::submit('Add Interest', ['class' => 'btn btn-primary btn-lg'])}}
 				                        </div>
 				                            
 				                        {!! Form::close() !!} 
@@ -314,19 +334,82 @@
 			</div>
 		</div>  
 
-	   {{--  <div class="col-md-8 second">
+	    <div class="col-md-8 second">
 	         <div class="panel">
-	            <div class="panel-heading"><h2>My links</h2></div>
+	            <div class="panel-heading"><h2>My links<a class="glyphicon glyphicon-plus pull-right" data-toggle="modal" data-target="#links"></a></h2></div>
 	                <div class="panel-body">
 	                	<ul class="list-group">
-							<li class="list-group-item">Facebook <kbd class="pull-right">Thats the link</kbd></li>
-							<li class="list-group-item">Twitter<kbd class="pull-right">Or not</kbd></li>
-						</ul>
+							@if(count($links)>0)
+			                	@foreach($links as $link)
+		                            <li class="list-group-item"><kbd>{{$link->link}}</kbd>
+
+
+									 {!! Form::open( 
+                                                [   'action' => ['LinksController@destroy', Auth::user()->id, $link->id], 
+                                                    'method' => 'POST',  
+                                                    'class' => 'pull-right'
+                                                ] 
+                                        ) !!}
+
+                                                {{Form::hidden('_method', 'DELETE')}}
+                                                {{Form::submit('Delete', ['class' => 'btn btn-danger btn-sm', 'style' => 'margin-left: 5px; margin-right: 5px; margin-bottom: 5px'])}}
+
+                                        {!! Form::close() !!}
+		                            </li>
+		                        @endforeach
+
+		                      
+
+		                    @else
+								<li class="list-group-item">None</li>
+		                      
+		                    @endif
+							</ul>
 	                </div>
 	          </div>
+
+
+					<div class="modal fade" id="links" tabindex="-1" role="dialog" aria-labelledby="links" aria-hidden="true">
+				          <div class="modal-dialog">
+
+				            <div class="modal-content">
+
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                  <h4 class="modal-title" id="myModalLabel">Add a Link</strong></h4>
+							</div>
+
+							<div class="modal-body">
+				              {!! Form::open(['action' => ['LinksController@store', Auth::user()->id], 'method' =>'POST', 'enctype' => 'multipart/form-data']) !!}
+
+				                            <div class='form-group'> {{-- Bootstrap accepted in forms --}}
+				                                    {{Form::label('link', 'Add a social media, personal or any link that explains others about you.')}} {{-- the label --}}
+				                                    {{Form::text('link','', ['class' => 'form-control', 'placeholder' => 'eg. www.facebook.com/akhil.boddu'])}}
+				                            </div>
+
+				                            
+
+				                            </div>
+											
+											<div class="modal-footer">
+				                  				<a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
+				                            
+				                            {{Form::submit('Add Link', ['class' => 'btn btn-primary btn-lg'])}}
+				                        </div>
+				                            
+				                        {!! Form::close() !!} 
+
+								
+
+				            	</div>
+				          </div>
+			        </div>
+
+
+
 	    </div>
 
-	     <div class="col-md-8 third">
+	     {{-- <div class="col-md-8 third">
 	         <div class="panel">
 	            <div class="panel-heading"><h2>Bio</h2></div>
 	                <div class="panel-body">

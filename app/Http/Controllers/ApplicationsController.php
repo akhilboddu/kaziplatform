@@ -81,6 +81,7 @@ class ApplicationsController extends Controller
     public function store(Request $request)
     {
 
+
         //Grabbing relevant details 
         $cluster = Auth::user()->cluster; //cluster
         $job_id = (int)$request->route('job');
@@ -101,22 +102,27 @@ class ApplicationsController extends Controller
         }
 
         
+      
 
 
-        //create Application object in the database
-        $application = new Application();
-        $application->cluster_id = $client_id;
-        $application->job_id = $job_id;
-        $application->job_title = $job->title;
-        $application->cluster_name = $cluster->name;
-        $application->cluster_members = $s;
-        $application->status = 'sent';
-        $application->save();
+
+            //create Application object in the database
+            $application = new Application();
+            $application->cluster_id = $client_id;
+            $application->job_id = $job_id;
+            $application->job_title = $job->title;
+            $application->cluster_name = $cluster->name;
+            $application->cluster_members = $s;
+            $application->status = 'sent';
+            $application->save();
+            
+            //notify client about sending request
+            $client->notify(new ApplicationSent($application, $cluster, $job, $client));
+
+
+
+            return redirect()->route('cluster.show', Auth::user()->cluster->id)->with('success','Application has been sent!');
         
-        //notify client about sending request
-        $client->notify(new ApplicationSent($application, $cluster, $job, $client));
-
-        return redirect()->route('cluster.show', Auth::user()->cluster->id)->with('success','Application has been sent!');
                                                                 
 
     }

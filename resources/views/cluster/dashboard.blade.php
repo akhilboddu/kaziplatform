@@ -23,7 +23,8 @@
                 <div class="panel-body">
 
                     <h2>{{Auth::user()->cluster->name}}</h2>
-                    <a href="{{route('addmember', Auth::user()->cluster->id)}}" class="btn btn-primary pull-right">Add members</a><br>
+                    <a  href="{{route('addmember', Auth::user()->cluster->id)}}" class="btn btn-primary pull-right" style="margin-left: 10px" >Add member</a>
+                    <a data-toggle="modal" data-target="#General" class="btn btn-default pull-right" style="margin-left: 20px">Sent Requests</a><br>
 
             
                     <p>{{Auth::user()->cluster->slogan}}</p>   
@@ -47,7 +48,40 @@
 
                 </div>
             </div>
-        </div>
+            <div class="modal fade" id="General" tabindex="-1" role="dialog" aria-labelledby="General" aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="myModalLabel">Applications sent</strong></h4>
+                        </div>
+
+                        <div class="modal-body">
+                            @foreach($requests as $r)
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        {{$r->job_title}}
+                                    </li>
+                                </ul>
+                                <p></p>
+                            @endforeach
+                            
+                        </div>
+                                    
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
+                                    
+                        </div>
+                                    
+                                
+
+                        
+
+                    </div>
+                </div>
+            </div>
         </div>  
 
         <div class="row">
@@ -65,27 +99,35 @@
 
                         <div class="panel-body">
 
-
+                            
 
                             <hr>
                             <h3>Active Jobs</h3>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
+                            <div class="well">
+                                <div class="row">
+                                    <h3 style="text-align: center;"><strong>You have no Active Jobs at the moment</h3<strong></h1>
+                                </div>
+                                
+                                
+                            </div>
                             <br>
 
                             <hr>
                             <h3>Completed Jobs</h3>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
-                            <p>Job stuff</p>
+                            <div class="well">
+                                <div class="row">
+                                    <h3 style="text-align: center;"><strong>No Jobs have been completed Yet</h3<strong></h1>
+                                </div>
+                                
+                                
+                            </div>
                             <br>
-                            
-                            <hr>
+
+                            {{-- <hr>
                             <h3>Awaiting for response Projects</h3>
                             <p>Job stuff</p>
                             <p>Job stuff</p>
-                            <p>Job stuff</p>
+                            <p>Job stuff</p> --}}
 
                         </div>
                   </div>
@@ -116,7 +158,7 @@
 
              <div class="col-md-8 second">
                  <div class="panel">
-                    <div class="panel-heading"><h2>Need Some assistance?</h2></div>
+                    <div class="panel-heading"><h2>Need assistance?</h2></div>
                         <div class="panel-body">
                             <p><strong>Contact us for Support</strong></p>
                             <ul class="list-group">
