@@ -59,14 +59,18 @@
                         </div>
 
                         <div class="modal-body">
-                            @foreach($requests as $r)
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        {{$r->job_title}}
-                                    </li>
-                                </ul>
-                                <p></p>
-                            @endforeach
+                            @if(count($requests) > 0)
+                                @foreach($requests as $r)
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            {{$r->job_title}}
+                                        </li>
+                                    </ul>
+                                    <p></p>
+                                @endforeach
+                            @else
+                                <p>No requests for projects have been sent yet.</p>
+                            @endif
                             
                         </div>
                                     

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/> 
     <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
+    <link rel="shortcut icon" href="/storage/favicon.png" type="image/x-icon" />
 
 
     <!-- CSRF Token -->
@@ -55,7 +56,7 @@
           width: 94%;
         }
 
-        
+
 
         @yield('style')
 
